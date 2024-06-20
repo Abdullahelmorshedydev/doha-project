@@ -23,4 +23,9 @@ class Event extends Model
     {
         return $this->morphOne(Image::class, 'morphable');
     }
+
+    public function trips()
+    {
+        return $this->hasMany(Trip::class);
+    }
 }

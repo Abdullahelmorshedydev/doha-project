@@ -63,6 +63,33 @@
                     </ul>
                 </li>
                 <li
+                    class="nav-item {{ request()->is('admin/trips') || request()->is('admin/trips/*') ? 'menu-open' : '' }}">
+                    <a href="#"
+                        class="nav-link {{ request()->is('admin/trips') || request()->is('admin/trips/*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Trips
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.trips.index') }}"
+                                class="nav-link {{ request()->is('admin/trips') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Trips</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.trips.create') }}"
+                                class="nav-link {{ request()->is('admin/trips/create') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create New Trip</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li
                     class="nav-item {{ request()->is('admin/job-offers') || request()->is('admin/job-offers/*') ? 'menu-open' : '' }}">
                     <a href="#"
                         class="nav-link {{ request()->is('admin/job-offers') || request()->is('admin/job-offers/*') ? 'active' : '' }}">

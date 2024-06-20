@@ -4,6 +4,7 @@ use App\Http\Controllers\Web\Admin\ContactController;
 use App\Http\Controllers\Web\Admin\EventController;
 use App\Http\Controllers\Web\Admin\HomeController;
 use App\Http\Controllers\Web\Admin\JobOfferController;
+use App\Http\Controllers\Web\Admin\TripController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', [HomeController::class, 'index'])->name('index');
 
 Route::resource('events', EventController::class);
+
+Route::resource('trips', TripController::class);
 
 Route::resource('job-offers', JobOfferController::class);
 

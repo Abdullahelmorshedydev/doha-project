@@ -10,7 +10,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('siminar.index') }}">Seminars</a></li>
                 <li><a class="dropdown-item" href="{{ route('joboffer.index') }}">Job offers</a></li>
-                <li><a class="dropdown-item" href="trips.html">Trips</a></li>
+                <li><a class="dropdown-item" href="{{ route('trip.index') }}">Trips</a></li>
             </ul>
         </li>
         <li><a href="{{ route('aboutus.index') }}">About us</a></li>
