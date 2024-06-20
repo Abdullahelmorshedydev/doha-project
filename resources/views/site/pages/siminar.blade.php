@@ -32,7 +32,15 @@
                                     {{ $siminar->name }}
                                 </h3>
                                 <p>{{ $siminar->description }}</p>
-                                <a href="">Book now</a>
+                                <form action="{{ route('calender.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="name" value="{{ $siminar->name }}">
+                                    <input type="hidden" name="description" value="{{ $siminar->description }}">
+                                    <input type="hidden" name="date" value="{{ $siminar->date }}">
+                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                    <input type="hidden" name="type" value="2">
+                                    <button type="submit">book now</button>
+                                </form>
                             </div>
                             <div style="clear :both"></div>
                         </li>

@@ -3,6 +3,8 @@
 use App\Http\Controllers\Web\Site\AboutUsController;
 use App\Http\Controllers\Web\Site\Auth\LoginController;
 use App\Http\Controllers\Web\Site\Auth\RegisterController;
+use App\Http\Controllers\Web\Site\CalenderController;
+use App\Http\Controllers\Api\Site\CalenderController as ApiCalenderController;
 use App\Http\Controllers\Web\Site\HomeController;
 use App\Http\Controllers\Web\Site\JobOfferController;
 use App\Http\Controllers\Web\Site\SiminarController;
@@ -42,4 +44,10 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('/api/calender', [ApiCalenderController::class, 'index'])->name('get');
+    Route::controller(CalenderController::class)->prefix('/calender')->as('calender.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/store', 'store')->name('store');
+    });
 });

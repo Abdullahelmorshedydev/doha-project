@@ -46,4 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'role' => UserRoleEnum::class,
     ];
+
+    public function calender()
+    {
+        return $this->hasMany(Calender::class);
+    }
 }

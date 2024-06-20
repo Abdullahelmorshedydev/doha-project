@@ -1,7 +1,9 @@
 <nav class="nav">
     <ul>
         <li><a href="{{ route('index') }}">Home</a></li>
-        <li><a href="#">Calender</a></li>
+        @auth
+            <li><a href="{{ route('calender.index') }}">Calender</a></li>
+        @endauth
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">

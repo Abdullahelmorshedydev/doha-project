@@ -124,3 +124,20 @@ section .events ul li .details a:hover {
     color: #fff;
     border-color: rgb(30, 30, 3);
 }
+section .events ul li .details form button {
+    width: 100px;
+    text-decoration: none;
+    border: 1px solid white;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    outline: none;
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+}
+section .events ul li .details form button:hover {
+    background: #403145;
+    color: #fff;
+    border-color: #403145;
+}
