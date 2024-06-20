@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\Web\Site\AboutUsController;
 use App\Http\Controllers\Web\Site\Auth\LoginController;
 use App\Http\Controllers\Web\Site\Auth\RegisterController;
+use App\Http\Controllers\Web\Site\HomeController;
+use App\Http\Controllers\Web\Site\JobOfferController;
+use App\Http\Controllers\Web\Site\SiminarController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -16,9 +21,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth')->name('index');
+Route::get('/', HomeController::class)->name('index');
+Route::get('/about-us', AboutUsController::class)->name('aboutus.index');
+Route::get('/siminar', SiminarController::class)->name('siminar.index');
+Route::get('/job-offer', JobOfferController::class)->name('joboffer.index');
 
 Route::middleware('guest')->group(function () {
     Route::controller(LoginController::class)->prefix('/login')->as('login.')->group(function () {

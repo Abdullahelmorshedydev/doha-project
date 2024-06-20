@@ -3,6 +3,7 @@
 use App\Http\Controllers\Web\Admin\ContactController;
 use App\Http\Controllers\Web\Admin\EventController;
 use App\Http\Controllers\Web\Admin\HomeController;
+use App\Http\Controllers\Web\Admin\JobOfferController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,5 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', [HomeController::class, 'index'])->name('index');
 
 Route::resource('events', EventController::class);
+
+Route::resource('job-offers', JobOfferController::class);
 
 Route::get('/contacts', ContactController::class)->name('contacts.index');

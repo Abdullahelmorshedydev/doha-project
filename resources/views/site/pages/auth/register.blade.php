@@ -34,10 +34,6 @@
                     <input type="password" name="password_confirmation" required>
                     <label>Confirm Password</label>
                 </div>
-                <div class="gender">
-                    <label><input type="checkbox"> female </label>
-                    <label><input type="checkbox"> male </label>
-                </div>
                 <button type="submit"> Register</button>
                 <div class="register-link">
                     <p>have an account ? <a href="{{ route('login.index') }}">Login</a></p>
