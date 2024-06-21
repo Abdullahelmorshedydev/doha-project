@@ -10,9 +10,9 @@
         @include('site.includes.navbar')
         <div class="content">
             <h2>The Events Catcher</h2>
-            @auth
+            @guest
                 <a href="{{ route('login.index') }}">Sign In</a>
-            @endauth
+            @endguest
         </div>
         <div class="clr"></div>
     </div>
