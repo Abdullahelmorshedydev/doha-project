@@ -117,9 +117,6 @@ section .events ul li .details a {
     cursor: pointer;
     background-color: #fff;
     outline: none;
-    position: absolute;
-    left: 0;
-    bottom: -25px;
 }
 section .events ul li .details a:hover {
     background: rgb(141, 141, 124);
