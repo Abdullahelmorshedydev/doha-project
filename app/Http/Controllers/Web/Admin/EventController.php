@@ -81,8 +81,10 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        FilesTrait::delete($event->image->image);
-        $event->image()->delete();
+        if (isset($event->image)) {
+            FilesTrait::delete($event->image->image);
+            $event->image()->delete();
+        }
         $event->delete();
         return back();
     }
