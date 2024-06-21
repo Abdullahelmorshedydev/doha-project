@@ -20,14 +20,15 @@ body {
     padding: 2rem 0;
 }
 .checkout-container {
-    max-width: 120rem;
+    width: 90rem;
     height: 50rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     position: absolute;
     top: 20px;
-    left: 30%;
+    left: -50%;
+    z-index: 4;
 }
 em {
     font-style: normal;
