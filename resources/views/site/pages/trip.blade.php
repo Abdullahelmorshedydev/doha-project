@@ -31,15 +31,17 @@
                                     {{ $trip->name . ' ' . $trip->event->name }}
                                 </h3>
                                 <p>{{ $trip->description }}</p>
-                                <form action="{{ route('calender.store') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="name" value="{{ $siminar->name }}">
-                                    <input type="hidden" name="description" value="{{ $siminar->description }}">
-                                    <input type="hidden" name="date" value="{{ $siminar->date }}">
-                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                    <input type="hidden" name="type" value="3">
-                                    <button type="submit">book now</button>
-                                </form>
+                                @auth
+                                    <form action="{{ route('calender.store') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="name" value="{{ $trip->name }}">
+                                        <input type="hidden" name="description" value="{{ $trip->description }}">
+                                        <input type="hidden" name="date" value="{{ $trip->date }}">
+                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                        <input type="hidden" name="type" value="3">
+                                        <button type="submit">book now</button>
+                                    </form>
+                                @endauth
                             </div>
                             <div style="clear :both"></div>
                         </li>
