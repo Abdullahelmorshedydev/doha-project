@@ -16,6 +16,7 @@
             </ul>
         </li>
         <li><a href="{{ route('aboutus.index') }}">About us</a></li>
+        <li><a href="{{ route('feedback.index') }}">Feedback</a></li>
         @guest
             <li><a href="{{ route('login.index') }}">Sign In</a></li>
         @endguest
