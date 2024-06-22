@@ -85,6 +85,7 @@ section .events ul li .time h2 {
     color: #fff;
     font-size: 40px;
     line-height: 30px;
+    font-size: 30px;
 }
 section .events ul li .time h2 span {
     font-size: 30px;

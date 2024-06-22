@@ -85,6 +85,7 @@ section .events ul li .time h4 {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
+    font-size: 38px;
 }
 section .events ul li .time h2 span {
     font-size: 30px;
@@ -129,6 +130,9 @@ section .events ul li .details a:hover {
 }
 section .events ul li .details button {
     width: 100px;
+    height: 30px;
+    font-size: 15px;
+    color: gray;
     text-decoration: none;
     border: 1px solid white;
     text-align: center;

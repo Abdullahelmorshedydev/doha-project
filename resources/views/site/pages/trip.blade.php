@@ -5,26 +5,31 @@
     <link rel="stylesheet" href="{{ asset('assets/cs/trips.css') }}">
 @endpush
 @section('content')
-    @include('site.includes.navbar')
-    <section>
-        <div class="leftbox">
-            <div class="content">
-                <h1>
-                    Creating memories, one trip at a time.
-                </h1>
-                <p>We help you capture life-lasting memories!<br>
-                    Book your trip now!
-                    𝕐𝕆𝕌'ℝ𝔼 ℕ𝕆𝕋 𝕀𝕄𝕄𝕆ℝ𝕋𝔸𝕃, 𝕊𝔼𝕀ℤ𝔼 𝔼𝕍𝔼ℝ𝕐 𝕄𝕆𝕄𝔼ℕ𝕋.</p>
-            </div>
+@include('site.includes.navbar')
+<section>
+    <div class="leftbox">
+        <div class="content">
+            <h1>
+                Creating memories, one trip at a time.
+            </h1>
+            <p>We help you capture life-lasting memories!<br>
+                Book your trip now!
+                𝕐𝕆𝕌'ℝ𝔼 ℕ𝕆𝕋 𝕀𝕄𝕄𝕆ℝ𝕋𝔸𝕃, 𝕊𝔼𝕀ℤ𝔼 𝔼𝕍𝔼ℝ𝕐 𝕄𝕆𝕄𝔼ℕ𝕋.</p>
         </div>
-        @if (count($trips) > 0)
-            <div class="events">
-                <ul>
-                    @foreach ($trips as $trip)
+    </div>
+    @if (count($trips) > 0)
+        <div class="events">
+            <ul>
+                @foreach ($trips as $trip)
                         <li>
                             <div class="time">
                                 <h4>
-                                    {{ $trip->date }}
+                                    @php
+                                        $date = Carbon\Carbon::createFromFormat('Y-m-d', $trip->date);
+
+                                        $formattedDate = $date->format('d M');
+                                    @endphp
+                                    {{ $formattedDate }}
                                 </h4>
                             </div>
                             <div class="details">
@@ -68,8 +73,8 @@
                                                         <i class="card-logo fa-brands fa-cc-amex"></i>
                                                         <i class="card-logo fa-brands fa-cc-mastercard"></i>
                                                         <i class="card-logo fa-brands fa-cc-discover"></i> </span></label>
-                                                <input id="credit-card-num" name="credit-card-num"
-                                                    placeholder="1111-2222-3333-4444" required type="text" />
+                                                <input id="credit-card-num" name="credit-card-num" placeholder="1111-2222-3333-4444"
+                                                    required type="text" />
                                             </div>
 
                                             <div>
@@ -105,8 +110,7 @@
 
                                             <div>
                                                 <label for="cvv">CVV</label>
-                                                <input id="cvv" name="cvv" placeholder="415" type="text"
-                                                    required />
+                                                <input id="cvv" name="cvv" placeholder="415" type="text" required />
                                                 <a class="cvv-info" href="#">What is CVV?</a>
                                             </div>
 
@@ -126,13 +130,13 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    </section>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</section>
 
-    <script src="https://kit.fontawesome.com/bb515311f9.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/bb515311f9.js" crossorigin="anonymous"></script>
 @endsection
 @push('script')
     <script>
@@ -144,7 +148,7 @@
             }
         }
 
-        document.querySelector('#closeModal').addEventListener('click', function() {
+        document.querySelector('#closeModal').addEventListener('click', function () {
             if (!modal.classList.contains('d-none')) {
                 modal.classList.add('d-none');
             }

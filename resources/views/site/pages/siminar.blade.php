@@ -5,27 +5,32 @@
     <link rel="stylesheet" href="{{ asset('assets/cs/events.css') }}">
 @endpush
 @section('content')
-    @include('site.includes.navbar')
-    <section>
-        <div class="leftbox">
-            <div class="content">
-                <h1>
-                    KNOWLEDGE SPHERE
-                </h1>
-                <p>siminars play a crucial role in enhancing students’ educational experiences by providing opportunities
-                    for deeper learning, skill development, networking, and exposure to new ideas and industry trends. They
-                    prepare students not only for academic success but also for professional excellence and personal growth.
-                </p>
-            </div>
+@include('site.includes.navbar')
+<section>
+    <div class="leftbox">
+        <div class="content">
+            <h1>
+                KNOWLEDGE SPHERE
+            </h1>
+            <p>siminars play a crucial role in enhancing students’ educational experiences by providing opportunities
+                for deeper learning, skill development, networking, and exposure to new ideas and industry trends. They
+                prepare students not only for academic success but also for professional excellence and personal growth.
+            </p>
         </div>
-        @if (count($siminars) > 0)
-            <div class="events">
-                <ul>
-                    @foreach ($siminars as $siminar)
+    </div>
+    @if (count($siminars) > 0)
+        <div class="events">
+            <ul>
+                @foreach ($siminars as $siminar)
                         <li>
                             <div class="time">
                                 <h4>
-                                    {{ $siminar->date }}
+                                    @php
+                                        $date = Carbon\Carbon::createFromFormat('Y-m-d', $siminar->date);
+
+                                        $formattedDate = $date->format('d M');
+                                    @endphp
+                                    {{ $formattedDate }}
                                 </h4>
                             </div>
                             <div class="details">
@@ -69,8 +74,8 @@
                                                         <i class="card-logo fa-brands fa-cc-amex"></i>
                                                         <i class="card-logo fa-brands fa-cc-mastercard"></i>
                                                         <i class="card-logo fa-brands fa-cc-discover"></i> </span></label>
-                                                <input id="credit-card-num" name="credit-card-num"
-                                                    placeholder="1111-2222-3333-4444" required type="text" />
+                                                <input id="credit-card-num" name="credit-card-num" placeholder="1111-2222-3333-4444"
+                                                    required type="text" />
                                             </div>
 
                                             <div>
@@ -106,8 +111,7 @@
 
                                             <div>
                                                 <label for="cvv">CVV</label>
-                                                <input id="cvv" name="cvv" placeholder="415" type="text"
-                                                    required />
+                                                <input id="cvv" name="cvv" placeholder="415" type="text" required />
                                                 <a class="cvv-info" href="#">What is CVV?</a>
                                             </div>
 
@@ -127,13 +131,13 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    </section>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</section>
 
-    <script src="https://kit.fontawesome.com/bb515311f9.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/bb515311f9.js" crossorigin="anonymous"></script>
 
 @endsection
 @push('script')
@@ -146,7 +150,7 @@
             }
         }
 
-        document.querySelector('#closeModal').addEventListener('click', function() {
+        document.querySelector('#closeModal').addEventListener('click', function () {
             if (!modal.classList.contains('d-none')) {
                 modal.classList.add('d-none');
             }
