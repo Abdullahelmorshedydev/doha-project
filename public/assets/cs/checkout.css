@@ -6,19 +6,7 @@
 html {
     font-size: 62.5%;
 }
-body {
-    background: url("https://images.pexels.com/photos/2876787/pexels-photo-2876787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-    background-position: center;
-    background-size: cover;
-    backdrop-filter: blur(8px);
-    color: #3c3c39;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    font-family: "Monsterrat", sans-serif;
-    position: relative;
-    padding: 2rem 0;
-}
+
 .checkout-container {
     width: 90rem;
     height: 50rem;

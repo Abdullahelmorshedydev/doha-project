@@ -23,6 +23,7 @@ section .leftbox .content {
     background: rgba(0, 0, 0, 0.5);
     padding: 40px;
     transition: 0.5s;
+    font-size: 18px;
 }
 section .leftbox .content:hover {
     background: beige;

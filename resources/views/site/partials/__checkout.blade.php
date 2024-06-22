@@ -9,7 +9,7 @@
             <form class="form-box" enctype="text/plain" method="get" target="_blank">
                 <div>
                     <label for="full-name">Full Name</label>
-                    <input id="full-name" name="full-name" placeholder="Satoshi Nakamoto" required type="text" />
+                    <input id="full-name" name="full-name" placeholder="your name" required type="text" />
                 </div>
 
                 <div>
