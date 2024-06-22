@@ -134,7 +134,7 @@ section .events ul li .details button {
     outline: none;
     position: absolute;
     left: 0;
-    bottom: -16px;
+    bottom: 0;
 }
 section .events ul li .details button:hover {
     background: #403145;
