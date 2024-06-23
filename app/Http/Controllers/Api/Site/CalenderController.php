@@ -11,6 +11,6 @@ class CalenderController extends Controller
     public function index()
     {
         $calenders = Calender::where('user_id', auth()->user()->id)->get();
-        return response()->json($calenders->toArray());
+        return response()->json($calenders);
     }
 }

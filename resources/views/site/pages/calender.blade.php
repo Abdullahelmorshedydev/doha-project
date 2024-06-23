@@ -1,5 +1,5 @@
 @extends('site.layouts.app')
-@section('title', 'Job Offers - The Event Catcher')
+@section('title', 'Calender - The Event Catcher')
 @push('style')
     <link rel="stylesheet" href="{{ asset('assets/cs/evo-calendar.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/cs/evo-calendar.midnight-blue.min.css') }}" />
@@ -15,42 +15,19 @@
     <script src="{{ asset('assets/js/evo-calendar.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $("#calendar").evoCalendar({
-                theme: "Royal Navy",
-                eventDisplayDefault: true,
-                sidebarDisplayDefault: true,
-                onMonthChange: function() {
-                    fetchEvents();
+            $.ajax({
+                url: '/api/calender',
+                method: 'GET',
+                success: function(response) {
+                    $("#calendar").evoCalendar({
+                        theme: "Royal Navy",
+                        calendarEvents: response
+                    });
+                },
+                error: function(error) {
+                    console.error('Error fetching events:', error);
                 }
             });
-
-            fetchEvents();
-
-            function fetchEvents() {
-                $.ajax({
-                    url: '/api/calender',
-                    method: 'GET',
-                    success: function(response) {
-                        if (Array.isArray(response)) {
-                            $("#calendar").evoCalendar('removeCalendarEvent', '*');
-                            response.forEach((event) => {
-                                $("#calendar").evoCalendar('addCalendarEvent', {
-                                    id: event.id,
-                                    name: event.name,
-                                    date: event.date,
-                                    description: event.description,
-                                    type: event.type
-                                });
-                            });
-                        } else {
-                            console.error('Error: Response is not an array', response);
-                        }
-                    },
-                    error: function(error) {
-                        console.error('Error fetching events:', error);
-                    }
-                });
-            }
         });
     </script>
 @endpush
